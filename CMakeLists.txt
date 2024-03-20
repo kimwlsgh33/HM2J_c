@@ -14,6 +14,9 @@ file(GLOB_RECURSE SRC_FILES src/*.c)
 # SRC_FILES 사용해, 실행파일 생성
 add_executable(${PROJECT_NAME} ${SRC_FILES})
 
+# include 디렉토리 지정,  Link시 Header 파일 추가
+target_include_directories(${PROJECT_NAME} PUBLIC include)
+
 # Packaging - run `cpack`, `make package`
 # Set CPack variables
 set(CPACK_PACKAGE_NAME ${PROJECT_NAME})

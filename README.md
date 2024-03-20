@@ -9,7 +9,6 @@ C + MySQL
 
   ```bash
   sudo snap install git
-  brew install git
   ```
 
 - [Doxygen](https://doxygen.org/) >= 1.9.1  
@@ -20,7 +19,7 @@ C + MySQL
   brew install --cask doxygen
   ```
 
-- CMake >= 3.10  
+- [CMake](https://cmake.org) >= 3.10  
   To build this project
 
   ```bash
