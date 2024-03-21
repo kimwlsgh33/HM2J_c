@@ -14,8 +14,18 @@ file(GLOB_RECURSE SRC_FILES src/*.c)
 # SRC_FILES 사용해, 실행파일 생성
 add_executable(${PROJECT_NAME} ${SRC_FILES})
 
+# MySQL library libmysqlclient 검색.
+find_library(MYSQL libmysqlclient)
+# mysqlclient를 프로젝트 실행 파일에 연결
+target_link_libraries(${PROJECT_NAME} ${MYSQL})
 # include 디렉토리 지정,  Link시 Header 파일 추가
-target_include_directories(${PROJECT_NAME} PUBLIC include)
+# DEB : /usr/include/mysql
+# macOS : /opt/homebrew/include/mysql
+target_include_directories(${PROJECT_NAME}
+PUBLIC "${PROJECT_SOURCE_DIR}/include"
+PRIVATE "/usr/include/mysql"
+PRIVATE "/opt/homebrew/include/mysql"
+)
 
 # Packaging - run `cpack`, `make package`
 # Set CPack variables

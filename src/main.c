@@ -1,7 +1,13 @@
-#include "test.h"
+#include "db.h"
 #include <stdio.h>
+
 int main(void) {
-  test();
-  printf("Hello, World!\n");
+  init_db();
+  // write_db(100, "test");
+  RESULT *test = read_db("test");
+  printf("%s\n", test->name);
+  printf("%d\n", test->point);
+
+  close_db();
   return 0;
 }
