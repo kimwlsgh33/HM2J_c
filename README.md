@@ -45,7 +45,9 @@ C + MySQL
   git clone <url>
 ```
 
-- 저장소 줄기(branch) 확인하기
+- 저장소 줄기(branch)들 확인하기
+  - 현재 접속중인 줄기(branch)들 확인
+  - 모든 줄기(branch)들 확인
 
 ```bash
   git branch
@@ -56,6 +58,12 @@ C + MySQL
 ```bash
   git branch <branch>
 ```
+
+- 줄기(branch) 삭제하기
+
+  ```bash
+  git branch -d <branch>
+  ```
 
 - 줄기(branch) 접속(checkout)하기
 
