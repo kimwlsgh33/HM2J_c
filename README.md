@@ -2,7 +2,13 @@
 
 C + MySQL
 
-# Requirements (필요사항)
+# Table of Contents (목차)
+
+- [Requirements (필요사항)](#Requirements)
+- [Usage (사용법)](#Usage)
+- [TODO (할일)](#TODO)
+
+# Requirements
 
 - [Git](https://git-scm.com/)  
   To clone this repo `git clone https://github.com/skoler/HM2J_c.git`
@@ -27,7 +33,7 @@ C + MySQL
   brew install cmake
   ```
 
-# Usage (사용법)
+# Usage
 
 ## Git
 
@@ -98,7 +104,33 @@ C + MySQL
   git push origin <branch>
   ```
 
-# TODO(해야할 일)
+- feature/gotcha 줄기(branch)에, main 줄기를 합치기(merge). **방향 주의**
+
+  ```bash
+  # feature/gotcha 줄기 접속
+  git checkout feature/gotcha
+  # 현재줄기(feature/gotcha)에 main 줄기를 합치기
+  git merge feature/gotcha
+  ```
+
+### Git으로 프로젝트 관리하기
+
+#### Github Flow
+
+Github가 Git으로 프로젝트를 관리하는 방법
+
+1. main 줄기(branch)를 만들기  
+   실제로 사용자에게 배포(release)하는 줄기
+
+   - 이 줄기에 다른 줄기를 합치려면, feature 줄기에서 합친후(merge), 테스트가 되어야한다.
+
+2. `feature/기능` 줄기(branch)를 만들기  
+   새로운 기능을 추가하는 줄기
+
+   - 새로운 기능이 필요할 때마다, 새로운 프랜치를 만든다.  
+     ex: `git branch feature/gotcha`
+
+# TODO
 
 - [ ] Add Usage to documentation
 - [ ] Add MySQL support
