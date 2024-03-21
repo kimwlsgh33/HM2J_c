@@ -185,6 +185,8 @@ void close_db() {
 
 /**
  * @brief MySQL DB에서 데이터를 가져올 수 있습니다
+ * @param name  이름을 통해 사용자 검색
+ * @return RESULT 구조체 주소 or NULL을 돌려줍니다
  */
 RESULT *read_db(char *name) {
   printf("################\n");
