@@ -1,13 +1,6 @@
-# C/C++
 build/
+.vscode/
 
-# Doxygen
+# doxyfile
 html/
 latex/
-
-# MacOS
-.DS_Store
-
-# clangd
-compile_commands.json
-.cache/
