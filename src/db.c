@@ -138,8 +138,6 @@ int drop_table(MYSQL *conn) {
  * @param conn MySQL DB
  */
 int create_table(MYSQL *conn) {
-  printf("################\n");
-  printf("[create_table] CREATE TABLE log\n");
   // create table
   if (mysql_query(conn, "CREATE TABLE IF NOT EXISTS log ("
                         "id INT AUTO_INCREMENT PRIMARY KEY,"
@@ -201,10 +199,15 @@ void read_db() {
   if (res == NULL) {
     system("clear");
     printf("********************************\n");
-    printf("%s\n", res->name);
-    printf("%d\n", res->point);
-    printf("time: %d-%d-%d %d:%d\n", res->year, res->month, res->day, res->hour, res->min);
+    printf("No History");
     printf("********************************\n");
+  } else {
+      system("clear");
+      printf("********************************\n");
+      printf("%s\n", res->name);
+      printf("%d\n", res->point);
+      printf("time: %d-%d-%d %d:%d\n", res->year, res->month, res->day, res->hour, res->min);
+      printf("********************************\n");
   }
 }
 
@@ -238,7 +241,7 @@ void write_db(int point) {
   snprintf(query, sizeof(query),
            "INSERT INTO log (name, point, year, month, day, hour, min) VALUES "
            "('%s', %d, %d, %d, %d, %d, %d)",
-           name, tmp.point, tmp.year, tmp.month, tmp.day, tmp.hour, tmp.min);
+           tmp.name, tmp.point, tmp.year, tmp.month, tmp.day, tmp.hour, tmp.min);
   if (mysql_query(conn, query)) {
     printf("INSERT Query failed: %s\n", mysql_error(conn));
   }
