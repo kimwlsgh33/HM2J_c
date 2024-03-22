@@ -45,7 +45,7 @@ int print_result(MYSQL *conn) {
  * @param conn MySQL DB
  * @return RESULT
  */
-RESULT *get_log(MYSQL *conn) {
+RESULT *get_one_row(MYSQL *conn) {
   MYSQL_RES *res;
   MYSQL_ROW row;
   res = mysql_store_result(conn);
@@ -188,12 +188,24 @@ void close_db() {
  * @param name  이름을 통해 사용자 검색
  * @return RESULT 구조체 주소 or NULL을 돌려줍니다
  */
-RESULT *read_db(char *name) {
-  if (mysql_query(conn, "SELECT * FROM log")) {
+void read_db() {
+  char query[256];
+  printf("이름을 입력하세요: ");
+  scanf("%s", tmp.name);
+  snprintf(query, sizeof(query), "SELECT * FROM log WHERE name = '%s'", tmp.name);
+  if (mysql_query(conn, query)) {
     printf("SELECT Query failed\n");
   }
 
-  return get_log(conn);
+  RESULT *res = get_one_row(conn);
+  if (res == NULL) {
+    system("clear");
+    printf("********************************\n");
+    printf("%s\n", res->name);
+    printf("%d\n", res->point);
+    printf("time: %d-%d-%d %d:%d\n", res->year, res->month, res->day, res->hour, res->min);
+    printf("********************************\n");
+  }
 }
 
 /**

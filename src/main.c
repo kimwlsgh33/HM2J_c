@@ -74,18 +74,12 @@ int main()
     case 2:
         printf("Search history\n");
         init_db();
-        RESULT *test = read_db("test");
-        if (test == NULL) {
-          system("clear");
-          printf("%s\n", test->name);
-          printf("%d\n", test->point);
-          printf("time: %d-%d-%d %d:%d\n", test->year, test->month, test->day, test->hour, test->min);
-        }
+        read_db();
         close_db();
         break;
     case 3:
         printf("Record Output\n");
-        print_result();
+        // print_result();
         break;
     case 4:
         printf("Quit\n");

@@ -14,7 +14,7 @@ typedef struct {
 
 void init_db();
 void close_db();
-RESULT *read_db(char *name);
+void read_db();
 void write_db(int point);
 int drop_table(MYSQL *conn);
 #endif
