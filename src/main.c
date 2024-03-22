@@ -49,7 +49,8 @@ int game_start()
         if (game == GAME_END)
         {
             signal(SIGVTALRM, SIG_IGN);
-            save_result(point);
+            // save_result(point);
+            write_db(point);
             x = 3;
             y = 0;
             point = 0;
@@ -72,6 +73,15 @@ int main()
         break;
     case 2:
         printf("Search history\n");
+        init_db();
+        RESULT *test = read_db("test");
+        if (test == NULL) {
+          system("clear");
+          printf("%s\n", test->name);
+          printf("%d\n", test->point);
+          printf("time: %d-%d-%d %d:%d\n", test->year, test->month, test->day, test->hour, test->min);
+        }
+        close_db();
         break;
     case 3:
         printf("Record Output\n");
@@ -82,18 +92,6 @@ int main()
         break;
     }
     return 0;
-
-int db(void) {
-  init_db();
-  // write_db(100, "test");
-  RESULT *test = read_db("test");
-  if (test == NULL) {
-    printf("%s\n", test->name);
-    printf("%d\n", test->point);
-  }
-
-  close_db();
-  return 0;
 }
 
 int init_tetris_table()

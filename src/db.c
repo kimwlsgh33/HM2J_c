@@ -189,9 +189,6 @@ void close_db() {
  * @return RESULT 구조체 주소 or NULL을 돌려줍니다
  */
 RESULT *read_db(char *name) {
-  printf("################\n");
-  printf("[select data] SELECT log\n");
-
   if (mysql_query(conn, "SELECT * FROM log")) {
     printf("SELECT Query failed\n");
   }
@@ -203,9 +200,11 @@ RESULT *read_db(char *name) {
  * @brief MySQL DB에 데이터를 저장할 수 있습니다
  * @param point 점수, 아이디
  */
-void write_db(int point, char *name) {
-  printf("################\n");
-  printf("[insert data] INSERT log\n");
+void write_db(int point) {
+  printf("이름을 입력하세요: ");
+  scanf("%s", tmp.name);
+
+  new(point);
   tmp.point = point;
 
   time_t now_sec = time(NULL);
