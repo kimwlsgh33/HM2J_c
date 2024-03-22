@@ -5,6 +5,9 @@ build/
 html/
 latex/
 
+# vscode
+.vscode
+
 # MacOS
 .DS_Store
 
