@@ -7,6 +7,7 @@
  * 프로그램입니다.
  */
 
+#include "db.h"
 #include <stdio.h>
 #include <signal.h>
 #include <sys/time.h>
@@ -26,6 +27,8 @@ extern int tetris_table[21][10];
 void save_result(int);
 int print_result(void);
 int print_color();
+char q;
+
 /**
  * @brief 이 함수는 signal을 설정하는 함수입니다.
  * @param signum signal 에 연결된 함수에 전달되는 인자
@@ -47,7 +50,8 @@ int game_start()
         if (game == GAME_END)
         {
             signal(SIGVTALRM, SIG_IGN);
-            save_result(point);
+            // save_result(point);
+            write_db(point);
             x = 3;
             y = 0;
             point = 0;
@@ -67,21 +71,20 @@ int main()
         game = GAME_START;
         init_tetris_table();
         menu = game_start();
-
-        display_tetris();
-        
         break;
     case 2:
         printf("Search history\n");
+        init_db();
+        read_db();
+        close_db();
         break;
     case 3:
         printf("Record Output\n");
-        print_result();
+        // print_result();
         break;
     case 4:
         printf("Quit\n");
         break;
-        
     }
     return 0;
 }

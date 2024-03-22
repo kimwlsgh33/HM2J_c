@@ -33,6 +33,13 @@ C + MySQL
   brew install cmake
   ```
 
+- [MySQL](https://www.mysql.com/) >= 8.3.0
+  To manage data by Database
+  ```bash
+  sudo apt install mysql-server
+  sudo mysql
+  ```
+
 # Usage
 
 ## Git

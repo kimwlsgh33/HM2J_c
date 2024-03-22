@@ -1,9 +1,12 @@
-# C/C++
 build/
+.vscode/
 
-# Doxygen
+# doxyfile
 html/
 latex/
+
+# vscode
+.vscode
 
 # MacOS
 .DS_Store

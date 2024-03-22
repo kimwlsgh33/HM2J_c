@@ -75,6 +75,7 @@ void display_tetris()
     // 블록이 없는 경우 공백을 출력합니다.
     printf("\n\n"); //두줄 공백 출력하는 것
     printf("Tetris Table\n");
+    printf("\t┯┯┯┯┯┯┯┯┯┯┯┯┯┯┯┯┯┯┯\n\t┏  ┯  ┯  ┯  ┯  ┯  ┓\n\t┃  │  │  ∧  ∧  │  ┃    살려줘!!\n\t┃  │  │ ( ≧ Д ≦ ) ┃   \n\t┃  │  │  ф  ф  │  ┃\n\t┗  ┷  ┷  ┷  ┷  ┷  ┛\n\t┷┷┷┷┷┷┷┷┷┷┷┷┷┷┷┷┷┷┷\n");
     for (i = 2; i < 21; i++)
     {
         printf("\t");
@@ -108,6 +109,7 @@ void display_tetris()
         }
         printf("\n");
     }
+    printf("\t 신해철 - 그대에게\n\t0:35 ━❍──────── -3:48\n\t↻     ⊲  Ⅱ  ⊳     ↺\n");
 }
 // int color()
 // {
