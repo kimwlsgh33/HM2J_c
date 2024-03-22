@@ -15,7 +15,7 @@ file(GLOB_RECURSE SRC_FILES src/*.c)
 add_executable(${PROJECT_NAME} ${SRC_FILES})
 
 # MySQL library libmysqlclient 검색.
-find_library(MYSQL libmysqlclient)
+find_library(MYSQL mysqlclient)
 # mysqlclient를 프로젝트 실행 파일에 연결
 target_link_libraries(${PROJECT_NAME} ${MYSQL})
 # include 디렉토리 지정,  Link시 Header 파일 추가
